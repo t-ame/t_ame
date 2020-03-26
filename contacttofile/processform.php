@@ -14,26 +14,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $myfile = fopen($filename, "w");
 
-    fwrite($myfile, 'First Name: ' . $fname);
-    fwrite($myfile, "\n");
-    fwrite($myfile, 'Last Name: ' . $lname);
-    fwrite($myfile, "\n");
-    fwrite($myfile, 'Email: ' . $email);
-    fwrite($myfile, "\n");
-    fwrite($myfile, 'Category: ' . $category);
-    fwrite($myfile, "\n");
-    fwrite($myfile, 'Subject: ' . $subject);
-    fwrite($myfile, "\n");
-    fwrite($myfile, 'Messgae: ' . $message);
-    fwrite($myfile, "\n");
-
-    if($myfile){
-        print_r("Contact form submitted successfully.");
-    } else {
+    if(!$myfile) {
         print_r("Error submitting form, please try again.");
+        exit();
     }
 
+    $fileContent = "First Name: $fname\nLast Name: $lname\nEmail: $email\nCategory: $category\nSubject: $subject\nMessgae: $message\n";
+
+    fwrite($myfile, $fileContent);
+
     fclose($myfile);
+
+    print_r("Contact form submitted successfully.");
 } else {
     print_r("Egungun be careful, na express you dey go ooo!!!");
 }
