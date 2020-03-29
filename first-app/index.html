@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(245, 244, 242);
+            font-family: Verdana;
+            color: darkcyan;
+            padding: 30px;
+        }
+        p{
+            font-size: 30px;
+            text-align: left;
+        }
+        input{
+            height: 30px;
+        }
+        button {
+            height: 30px;
+            width: 70px;
+            margin-left: 125px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/message" method="POST">
+        <p>Please enter a message here:</p>
+        <p>
+            <label for="message">Message:</label>
+            <input type="text" name="message" placeholder="Enter your message" required>
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
